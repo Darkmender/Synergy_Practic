@@ -1,0 +1,26 @@
+import math
+
+def calculate_factorial(number):
+    """Вычисляет факториал числа, используя библиотеку math."""
+    return math.factorial(number)
+
+def main():
+    try:
+        # Запрашиваем ввод числа у пользователя
+        user_input = input("Введите положительное целое число: ")
+        number = int(user_input)
+        
+        # Проверяем, что введенное число положительное
+        if number < 0:
+            print("Ошибка: Введите положительное число.")
+            return
+        
+        # Вычисляем факториал и выводим результат
+        result = calculate_factorial(number)
+        print(f"Факториал числа {number} равен {result}")
+    
+    except ValueError:
+        print("Ошибка: Введите целое число.")
+        
+# Запуск программы
+if __name__ == "__main__":
