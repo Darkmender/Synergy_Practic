@@ -1,0 +1,33 @@
+import random
+
+def guess_number():
+    number_to_guess = random.randint(1, 100)
+    attempts = 10
+    print("Добро пожаловать в игру 'Угадай число'!")
+    print(f"У вас есть {attempts} попыток, чтобы угадать число от 1 до 100.")
+
+    while attempts > 0:
+        try:
+            guess = int(input("Введите ваше предположение: "))
+            if guess < 1 or guess > 100:
+                print("Пожалуйста, введите число от 1 до 100.")
+                continue
+
+            if guess == number_to_guess:
+                print(f"Поздравляем! Вы угадали число {number_to_guess}!")
+                return
+            elif guess < number_to_guess:
+                print("Слишком маленькое число.")
+            else:
+                print("Слишком большое число.")
+
+            attempts -= 1
+            print(f"Осталось попыток: {attempts}")
+
+        except ValueError:
+            print("Ошибка ввода. Пожалуйста, введите целое число.")
+
+    print(f"К сожалению, попытки закончились. Загаданное число было {number_to_guess}.")
+
+if __name__ == "__main__":
+    guess_number()
