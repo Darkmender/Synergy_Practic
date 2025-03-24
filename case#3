@@ -1,0 +1,32 @@
+import random
+
+def play_game():
+    number = random.randint(1, 100)
+    attempts = 0
+
+    print("Добро пожаловать в игру 'Угадай число'!")
+    print("Я загадал число от 1 до 100. Попробуйте его угадать.")
+
+    while True:
+        try:
+            guess = int(input("Введите ваше предположение: "))
+            attempts += 1
+
+            if guess < number:
+                print("Слишком маленькое число. Попробуйте еще раз.")
+            elif guess > number:
+                print("Слишком большое число. Попробуйте еще раз.")
+            else:
+                print(f"Поздравляю! Вы угадали число {number} за {attempts} попыток.")
+                break
+        except ValueError:
+            print("Пожалуйста, введите корректное целое число.")
+
+    play_again = input("Хотите сыграть еще раз? (да/нет): ").lower()
+    if play_again == 'да':
+        play_game()
+    else:
+        print("Спасибо за игру! До свидания.")
+
+if __name__ == "__main__":
+    play_game()
